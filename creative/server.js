@@ -22,10 +22,6 @@ let recipe = { name: '',
 
 //Get all recipes
 app.get('/api/recipes', (req, res) => {
-    for(var i = 0; i < id; i++) {
-        console.log(recipes[i].name);
-    }
-
     res.send(recipes);
 });
 
@@ -55,19 +51,17 @@ app.delete('/api/recipes/:name', (req, res) => {
 
 //Update a recipe
 app.put('/api/recipes/:name', (req, res) => {
+    console.log("update");
     let name = req.params.name;
     let recipesMap = recipes.map(recipe => { return recipe.name; });
     let index = recipesMap.indexOf(name);
     let recipe = recipes[index];
+    console.log(index);
+    console.log(recipe);
 
-
-    // let name = req.body;
-    // recipe.ingredients = req.body.ingredients;
-    // recipe.steps = req.body.steps;
-    // recipe.servings = req.body.servings;
-    // recipes.set(name, recipe);
-    // console.log(recipes.get(name));
-    console.log("server update");
+    recipe = {name: req.body.name, ingredients: req.body.ingredients,
+        steps: req.body.steps, servings: req.body.servings};
+    recipes[index] = recipe;
     res.send(recipes);
 });
 
