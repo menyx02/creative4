@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+     <app-header/>
     <router-view/>
     <footer>
         <a class="FooterP" href="https://github.com/menyx02/creative4">GitHub Repository</a>
@@ -8,8 +9,10 @@
 </template>
 
 <script>
+import AppHeader from './components/AppHeader';
 export default {
-  name: 'App'
+  name: 'App',
+  components: { AppHeader }
 }
 </script>
 

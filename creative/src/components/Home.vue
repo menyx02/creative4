@@ -1,12 +1,11 @@
 <template>
   <div class="MyBook">
-   <h1> Home</h1>
+   <h1>eCook</h1>
 
   </div>
 </template>
 
 <script>
-
  export default {
    name: 'Home',
    data () {
