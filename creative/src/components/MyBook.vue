@@ -5,8 +5,6 @@
   <div id="optionsBar">
     <p v-on:click="setState('list')">My Recipes </p>
     <p v-on:click="setState('add')">Add New </p>
-    <!-- <p v-on:click="setState('edit')">Edit </p>
-    <p v-on:click="setState('delete')">Delete </p> -->
     <input type="text" v-model="selected">
   </div>
 
