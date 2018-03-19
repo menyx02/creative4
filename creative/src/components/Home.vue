@@ -1,5 +1,5 @@
 <template>
-  <div class="MyBook">
+  <div class="Home">
    <h1>eCook</h1>
 
    <p>Welcome to eCook! </p>
@@ -24,7 +24,7 @@
 </script>
 
 <style scoped>
-.MyBook {
+.Home {
   background-image: url("/static/images/kitchen.jpg");
   position: absolute;
   top: 54px;

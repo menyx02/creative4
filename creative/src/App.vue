@@ -26,6 +26,9 @@ body {
 h1 {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  font-size: 80px;
+  margin-bottom: 0px;
+  margin-top: 20px;
 }
 footer {
     position: fixed;
