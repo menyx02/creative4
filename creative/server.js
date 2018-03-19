@@ -6,7 +6,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-//app.use(express.static('dist'));
+app.use(express.static('dist'));
 
 
 //Key of recipes is name of recipe
