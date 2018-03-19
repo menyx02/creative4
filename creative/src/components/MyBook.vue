@@ -7,9 +7,9 @@
       <button v-on:click="setState('list')">My Recipes</button>
       <button v-on:click="setState('add')">Add New</button>
     </div>
-    <!-- <input type="text" v-model="selected"> -->
   </div>
 
+  <div id="empty" v-if="state === 'empty'"> </div>
 
   <div id="listContainer" v-if="state === 'list'">
     <li v-for="item in recipes" :key="item.name" v-on:click="setSelected(item.name)">
@@ -77,8 +77,8 @@
       <div class="recipeCard">
         <div class="title"> {{selectedRecipe.name}}</div>
         <div class="servings">Servings: {{selectedRecipe.servings}}</div>
-        <div class="ingredients">Ingredients:
-          <p v-for="ingredient in selectedRecipe.ingredients" :key="ingredient.id">{{ingredient}}</p>
+        <div class="ingredients">
+          Ingredients: <p v-for="ingredient in selectedRecipe.ingredients" :key="ingredient.id">{{ingredient}}</p>
         </div>
         <div class="steps">Steps:
           <p v-for="step in selectedRecipe.steps" :key="step.id">{{step}}</p>
@@ -128,6 +128,12 @@ export default {
       this.setState("selected");
     },
     setState: function(state) {
+      if(state === 'list') {
+        if(this.recipes.length === 0) {
+          state = 'empty';
+          alert("You have no recipes. Add a few to start!");
+        }
+      }
       this.state = state;
       this.getRecipes();
     },
@@ -298,7 +304,7 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   margin: 0px 20px 20px 20px;
-
+  text-align:center;
 }
 
 .ingredients p {
@@ -312,7 +318,7 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   margin: 0px 20px 20px 20px;
-
+  text-align:center;
 }
 
 .steps p {
