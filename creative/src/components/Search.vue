@@ -12,7 +12,7 @@
      <div class="ingredients">
        Ingredients:
        <p v-for="ingredient in item.ingredientLines" :key="ingredient.id">{{ingredient}}</p>
-       </div>
+     </div>
    </div>
 
   <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet">
