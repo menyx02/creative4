@@ -48,22 +48,22 @@
   <div class="fieldContainer" v-else-if="state === 'edit'">
     <div>
       <span>Name: </span>
-      <input type="text" v-model="name" :placeholder="selectedRecipe.name">
+      <input type="text" v-model="selectedRecipe.name" :placeholder="selectedRecipe.name">
     </div>
 
     <div>
       <span>Servings: </span>
-      <input type="text" v-model="servings" :placeholder="selectedRecipe.servings">
+      <input type="text" v-model="selectedRecipe.servings" :placeholder="selectedRecipe.servings">
     </div>
 
     <div>
       <span>Ingredients: </span>
-      <input type="text" v-model="ingredients" :placeholder="selectedRecipe.ingredients">
+      <input type="text" v-model="selectedRecipe.ingredients" :placeholder="selectedRecipe.ingredients">
     </div>
 
     <div>
       <span>Steps: </span>
-      <input type="text" v-model="steps" :placeholder="selectedRecipe.steps">
+      <input type="text" v-model="selectedRecipe.steps" :placeholder="selectedRecipe.steps">
     </div>
 
     <div class="fieldButton">
@@ -142,6 +142,10 @@ export default {
         });
     },
     addRecipe: function() {
+      if(this.name === '' ){
+        alert("Recipe name can't be empty");
+        return;
+      }
       axios
         .post(`/api/recipes/add`, {
           name: this.name,
@@ -174,12 +178,15 @@ export default {
         });
     },
     editRecipe: function() {
-      axios
-        .put(`/api/recipes/` + this.selected, {
-          name: this.selected,
-          ingredients: [],
-          steps: [],
-          servings: 5
+      if(this.selectedRecipe.name === '' ){
+        alert("Recipe name can't be empty");
+        return;
+      }
+      axios.put(`/api/recipes/` + this.selected, {
+          name: this.selectedRecipe.name,
+          servings: this.selectedRecipe.servings,
+          steps: this.selectedRecipe.steps,
+          ingredients: this.selectedRecipe.ingredients,
         })
         .then(response => {
           this.recipes = response.data;
