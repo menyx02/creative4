@@ -3,8 +3,8 @@
     <ul id="menu">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/Browse">Browse</router-link></li>
-      <li><router-link to="/Browse">Search</router-link></li>
-      <li><router-link to="/Browse">MyBook</router-link></li>
+      <li><router-link to="/Search">Search</router-link></li>
+      <li><router-link to="/MyBook">MyBook</router-link></li>
     </ul>
   </nav>
 </template>
@@ -22,7 +22,10 @@
  }
  nav {
      display: grid;
- }
+     padding-left: 8px;
+     margin-left:0px;
+     box-shadow: 4px 4px grey;
+}
  ul {
      list-style-type:none;
      margin:0;
@@ -32,7 +35,6 @@
  /*Create a horizontal list with spacing*/
  li {
      display:inline-block;
-     float: left;
      margin-right: 1px;
  }
  /*Style for menu links*/
@@ -43,11 +45,14 @@
      text-align: center;
      line-height: 50px;
      color: #666;
+     text-decoration: none;
  }
  /*Active color*/
  li a.active {
  }
  /*Hover state for top level links*/
  li:hover a {
+     font-weight: bold;
+     font-size: 20px;
  }
 </style>

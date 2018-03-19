@@ -5,6 +5,8 @@
     <footer>
         <a class="FooterP" href="https://github.com/menyx02/creative4">GitHub Repository</a>
       </footer>
+
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </div>
 </template>
 
@@ -17,7 +19,14 @@ export default {
 </script>
 
 <style>
+body {
+  margin:0px;
+}
 
+h1 {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
 footer {
     position: fixed;
     bottom: 0;
