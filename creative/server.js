@@ -27,6 +27,16 @@ app.get('/api/recipes', (req, res) => {
 
 //Add a recipe
 app.post('/api/recipes/add', (req, res) => {
+    var isduplicate = false;
+    //Don't accept duplicate names
+    recipes.forEach(function(element) {
+        if(element.name === req.body.name) {
+            isduplicate = true;
+        }
+    });
+
+    if(isduplicate) return;
+
     recipe = {name: req.body.name, ingredients: req.body.ingredients,
     steps: req.body.steps, servings: req.body.servings};
     recipes.push(recipe);
@@ -51,13 +61,11 @@ app.delete('/api/recipes/:name', (req, res) => {
 
 //Update a recipe
 app.put('/api/recipes/:name', (req, res) => {
-    console.log("update");
     let name = req.params.name;
     let recipesMap = recipes.map(recipe => { return recipe.name; });
     let index = recipesMap.indexOf(name);
     let recipe = recipes[index];
-    console.log(index);
-    console.log(recipe);
+
 
     recipe = {name: req.body.name, ingredients: req.body.ingredients,
         steps: req.body.steps, servings: req.body.servings};
