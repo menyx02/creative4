@@ -2,9 +2,9 @@
   <nav>
     <ul id="menu">
       <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/Browse">Browse</router-link></li>
-      <li><router-link to="/Search">Search</router-link></li>
       <li><router-link to="/MyBook">MyBook</router-link></li>
+      <!-- <li><router-link to="/Browse">Browse</router-link></li> -->
+      <li><router-link to="/Search">Search</router-link></li>
     </ul>
   </nav>
 </template>
